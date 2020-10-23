@@ -6,8 +6,7 @@ pipeline {
                 docker { image 'gradle' }
             }
             steps {
-                // sh 'chmod +x gradlew && ./gradlew build'
-                sh 'chmod +x gradlew && ./gradlew.bat'
+                sh 'chmod +x gradlew && ./gradlew build'
             }
         }
         stage('sonarqube') {
