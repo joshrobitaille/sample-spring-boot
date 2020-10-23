@@ -1,29 +1,37 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.3.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id "org.sonarqube" version "3.0"
 }
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "joshrobitaille_sample-spring-boot"
+    property "sonar.organization", "joshrobitaille"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	// tag::actuator[]
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	// end::actuator[]
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	// tag::tests[]
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-	// end::tests[]
+    // tag::actuator[]
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    // end::actuator[]
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // tag::tests[]
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    // end::tests[]
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
