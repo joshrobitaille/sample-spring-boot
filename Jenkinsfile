@@ -19,6 +19,7 @@ pipeline {
             }
             steps {
                 sh 'echo sonarqube'
+                sh './gradlew run'
             }
         }
         stage('docker build') {
