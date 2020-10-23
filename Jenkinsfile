@@ -28,6 +28,7 @@ pipeline {
             }
             steps {
                 sh 'echo docker build'
+                sh 'docker build -t joshrobitaille/interviewRepo .'
             }
         }
         stage('docker push') {
@@ -36,6 +37,7 @@ pipeline {
             }
             steps {
                 sh 'echo docker push'
+                sh 'docker push joshrobitaille/interviewRepo'
             }
         }
         stage('app deploy') {
